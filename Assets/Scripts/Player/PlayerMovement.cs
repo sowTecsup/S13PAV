@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         PlayerController.Instance.InputManager.OnJumpPerformed += Jump;
+
+       // SoundManager.Instance.PlaySound("JumpSFX", 10);
     }
 
    
@@ -35,6 +37,9 @@ public class PlayerMovement : MonoBehaviour
         if (!isGrounded) return;
 
         rb.AddForce(Vector2.up * JumpForce, ForceMode2D.Impulse);
+
+
+       
     }
     public void Movement()
     {

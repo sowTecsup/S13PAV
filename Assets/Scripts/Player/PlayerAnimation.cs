@@ -33,6 +33,7 @@ public class PlayerAnimation : MonoBehaviour
     {
         controller.SetTrigger("OnAttack");
         print("attack");
+        SoundManager.Instance.PlaySound("JumpSFX", 10);
     }
 
     private void Update()
