@@ -7,6 +7,7 @@ public class PlayerInputs : MonoBehaviour
     public InputSystem_Actions inputs;
     public Action<Vector2> OnMoveChange;
     public Action OnJumpPerformed;
+    public Action OnAttackPerformed;
 
     private Vector2 moveInput;
     private void Awake()
@@ -21,7 +22,13 @@ public class PlayerInputs : MonoBehaviour
         inputs.Player.Move.canceled += OnMove;
 
         inputs.Player.Jump.performed += OnJump;
+        inputs.Player.Attack.performed += OnAttack;
 
+    }
+
+    private void OnAttack(InputAction.CallbackContext context)
+    {
+        OnAttackPerformed?.Invoke();
     }
 
     private void OnJump(InputAction.CallbackContext context)

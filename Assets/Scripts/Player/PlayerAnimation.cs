@@ -26,7 +26,15 @@ public class PlayerAnimation : MonoBehaviour
         PlayerController.Instance.
             InputManager.OnJumpPerformed
             += SetJumpAnimation;
+        PlayerController.Instance.InputManager.OnAttackPerformed += SetAttackAnimation;
     }
+
+    private void SetAttackAnimation()
+    {
+        controller.SetTrigger("OnAttack");
+        print("attack");
+    }
+
     private void Update()
     {
         SetGroundedState();

@@ -1,24 +1,54 @@
 using UnityEngine;
 
+
+[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
+    public Rigidbody2D rb;
+
+    public float Speed = 1f;
+    public float JumpForce = 5;
     public float DetectSize = 0.1f;
     public float Distance = 0.1f;
-    private bool isGrounded;
+    public bool isGrounded;
 
     public Transform FeetReference;
 
+
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
+
+        PlayerController.Instance.InputManager.OnJumpPerformed += Jump;
     }
 
    
     void Update()
     {
         isGrounded = CheckIfGrounded();
+
+        Movement();
     }
 
+    public void Jump()
+    {
+        if (!isGrounded) return;
+
+        rb.AddForce(Vector2.up * JumpForce, ForceMode2D.Impulse);
+    }
+    public void Movement()
+    {
+        Vector2 dir = (PlayerController.Instance.InputManager.MoveInput).normalized;
+
+        dir *= Speed;
+
+        Vector2 currentLinear = rb.linearVelocity;
+
+        dir.y = currentLinear.y;
+
+        rb.linearVelocity = dir;
+
+    }
     public bool CheckIfGrounded()
     {
         Vector2 size = new Vector2(DetectSize, DetectSize);

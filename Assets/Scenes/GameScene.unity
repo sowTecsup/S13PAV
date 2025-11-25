@@ -404,6 +404,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TilePiece
       objectReference: {fileID: 0}
+    - target: {fileID: 8556382658438267178, guid: 2e83eeed8adb296458080cbea82538b3, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 8942174868562743975, guid: 2e83eeed8adb296458080cbea82538b3, type: 3}
       propertyPath: m_Size.x
       value: 9.100359
@@ -428,6 +432,10 @@ PrefabInstance:
     - target: {fileID: 158615826862801068, guid: 4e74d542cd4937f438e3c754f7f82e74, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7229126549808119639, guid: 4e74d542cd4937f438e3c754f7f82e74, type: 3}
+      propertyPath: Speed
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8335863229436282110, guid: 4e74d542cd4937f438e3c754f7f82e74, type: 3}
       propertyPath: m_LocalPosition.x
